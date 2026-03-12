@@ -34,3 +34,6 @@ jobs:
 
             -   name: Build notely image in GCP
                 run: gcloud builds submit --tag us-central1-docker.pkg.dev/focus-tree-489815-f9/notely-ar-repo/notely:latest .
+
+            -   name: Deploy to Cloud Run
+                run: gcloud run deploy notely --image REGION-docker.pkg.dev/focus-tree-489815-f9/notely-ar-repo/notely:latest --region us-central1 --allow-unauthenticated --project focus-tree-489815-f9 --max-instances=4
